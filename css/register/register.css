@@ -1,0 +1,334 @@
+/*=========  header部分 ================================*/
+/*定义header的宽高*/
+/*待改(不知道vw和vh这两单位好不好)*/
+/*=========  /header部分 ================================*/
+
+/*=========  section部分 ================================*/
+/*==section的背景样式==*/
+/*背景,宽度*/
+section{
+	width: 100%;
+	background: url(../../img/index/home-bg-play.png) 0 0;
+	background-color:#ccc;
+	margin-top: 60px;
+}
+/*==/section的背景样式==*/
+
+/*==section的样式==*/
+/*,宽度,高度,相对定位,过渡(暂定)*/
+#section{
+	width: 1200px;
+	height:550px;
+/*	padding-top:50px;*/
+	position: relative;
+	transition:all .5s ease-out;
+	margin:0 auto;
+/*	background:url(../../img/sectionbg.jpg) no-repeat;*/
+/*	background-size: 100% 100%;*/
+}
+/*==/section的样式==*/
+
+/*========表单的样式==============================*/
+/*==单个完整表单块的样式====*/
+
+/*背景颜色(白色),宽度,高度,阴影,水平居中,绝对定位*/
+.form{
+/*	background-color:rgba(0,0,0,.6);*/
+	background-color: #fff;
+	width: 350px;
+	height: 455px;
+	box-shadow:12px 12px 12px 0px #000;
+	text-align:center;
+	position:absolute;
+	overflow:hidden;
+	transition:all .5s ease-out;
+	z-index: 2;
+/*	padding-top:10px;*/
+}
+/*==/单个完整表单块的样式====*/
+
+/*==表单标题的样式==*/
+/*字体大小,字体加粗*/
+.form .title{
+	font-size: 26px;
+	font-weight:bold;
+/*	color:#FFF;*/
+/*	margin-bottom: 25px;*/
+}
+/*==/表单标题的样式==*/
+
+/*==表单标题中的(必填/选填)样式==*/
+/*字体大小,字体颜色*/
+.form .title .tab{
+	font-size: 20px;
+	color:red;
+}
+/*==/表单标题中的(必填/选填)样式==*/
+
+/*==表单中所有input的通用样式==*/
+/*下边框,内边距,字体大小*/
+.form input{
+	border-bottom:1px solid #ccc;
+	padding:7px 10px;
+	font-size:20px;
+/*	margin:10px auto;*/
+}
+/*==/表单中所有input的通用样式==*/
+
+
+/*==表单中所有input 聚焦时 的通用样式==*/
+/*边框颜色加深,背景为白色(不知有没有用)*/
+.form input:focus{
+	border-bottom:1px solid #000;
+	background-color: #fff;
+}
+/*==/表单中所有input 聚焦时 的通用样式==*/
+
+/*==表单(.form)中,所有直接子元素(即input,.title,button等的容器)的样式==*/
+/*高度(平分该.form标签),内容垂直居中,相对定位*/
+.form>*{
+	height: 65px;
+	line-height:65px;
+	position: relative;
+}
+/*==/表单(.form)中,所有直接子元素(即input的容器)的样式==*/
+
+/*==必填表单的位置==*/
+/*左,上*/
+.must{
+	left:100px;
+	top:50px;
+}
+/*==/必填表单的位置==*/
+
+/*==非必填表单的位置==*/
+/*右,上*/
+.not-must{
+/*	right:180px;*/
+/*	left:836px;*/
+	top:50px;
+}
+/*==/非必填表单的位置==*/
+
+/*==表单同意选项的介绍文字样式==*/
+/*字体大小,右边距,字体颜色*/
+.form.must [for=agree]{
+	font-size:15px;
+	padding-right:42px;
+/*	margin-top:12px;*/
+	color: #757575;
+}
+/*==/表单同意选项的介绍文字样式==*/
+
+/*==表单同意选项的文字(同意)样式==*/
+/*字体大小,字体颜色*/
+.form.must .agree{
+	font-size:15px;
+	color:#757575;
+}
+/*==/表单同意选项的文字(同意)样式==*/
+
+/*==表单中提示输入是否正确(√,×)的样式==*/
+/*绝对定位,右,垂直居中,字体加粗,字体大小,(默认)隐藏*/
+.form .vali_msg{
+	position: absolute;
+	right: 20px;
+	top: 0;
+	bottom: 0;
+	margin:auto;
+	font-weight:bold;
+	font-size:20px;
+	display:none;
+}
+/*==/表单中提示输入是否正确(√,×)的样式==*/
+
+/*==表单中输入错误的错误提示样式==*/
+/*绝对定位,水平居中,上,字体大小,背景颜色,宽度,高度,内容垂直居中,内容水平左对齐,左内边距,边框,(默认)隐藏,向X轴倾斜*/
+.form .error_msg{
+	position: absolute;
+	right: 0;
+	top: 61px;
+	bottom: 0;
+	left: 0;
+	margin:auto;
+	font-size:12px;
+	background-color: #ffd051;
+	width:251px ;
+	height: 20px;
+	line-height:20px;
+	text-align:left;
+	padding-left:10px;
+	border:1px solid red;
+	display:none;
+/*	font-style: italic;*/
+	transform:skewX(-20deg);
+}
+/*==/表单中输入错误的错误提示样式==*/
+
+/*==表单同意选项的错误提示样式==*/
+/*上*/
+.form [type=checkbox]~span.error_msg{
+	top:39px;
+}
+/*==表单同意选项的错误提示样式==*/
+
+/*==用于显示表单的错误提示等==*/
+/*显示*/
+.form .show{
+	display:block;
+}
+/*==/用于显示表单的错误提示等==*/
+
+/*==表单的头像提交==*/
+/*默认隐藏*/
+.form [name=file]{
+	display:none;
+}
+/*==/表单的头像提交==*/
+
+/*==表单的头像提交的文件名==*/
+/*字体颜色*/
+.form [name=file]+span{
+	display:inline-block;
+	color: #757575;
+	margin-left: 105px;
+	text-align:left;
+	max-width: 154px;
+	max-height: 21px;
+	overflow: hidden;
+	line-height: 21px;
+}
+/*==/表单的头像提交的文件名==*/
+
+/*==表单提交的大按钮的样式==*/
+/*水平居中,块级显示,宽度,高度,内容垂直,取消边框,背景颜色,字体颜色,圆角,鼠标移入时的鼠标变成小手,字体大小*/
+.form .btn-large{
+	margin: 0 auto;
+	display:block;
+	width: 95%;
+	height: 45px;
+	line-height:45px;
+	border:0;
+	background-color: #31b0d5;
+	color: #fff;
+	border-radius:5px;
+	cursor: pointer;
+	font-size:20px;
+}
+/*==表单提交的大按钮的样式==*/
+
+/*==表单性别选项的提示(男,女)==*/
+/*字体大小,右外边距*/
+.form [type=radio]~*{
+	font-size:20px;
+	margin-right:20px;
+	color: #757575;
+}
+/*==/表单性别选项的提示(男,女)==*/
+
+
+/*==表单性别选项的提示(男,女),被选中的样式==*/
+/*字体颜色*/
+.form [type=radio]~.checked{
+	color: #000;
+}
+/*==/表单性别选项的提示(男,女),被选中的样式==*/
+
+
+
+/*==(性别两个字的样式)==*/
+/*字体大小,右内边距,字体颜色*/
+.form.not-must label{
+	font-size:20px;
+	padding-right:42px;
+/*	margin-top:12px;*/
+	color: #757575;
+}
+/*==(性别两个字的样式)==*/
+
+
+#img{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left:54px;
+	top: 7px;
+	overflow:hidden;
+}
+#img>img{
+	width: 50px;
+	height: 50px;
+}
+/*========/表单的样式==============================*/
+
+
+
+
+
+/*========表单的动画部分==================================*/
+.form.not-must{
+	display:block;
+	z-index:1;
+	left:100px;
+}
+
+.form.not-must.out{
+	left:750px;
+}
+
+
+/*========/表单的动画部分==================================*/
+
+
+/*toggle*/
+#toggle{
+	width: 15px;
+	height: 35px;
+	position: absolute;
+	left: 450px;
+	top:0;
+	bottom: 0;
+	margin: auto;
+	z-index: 10;
+	background-color: transparent;
+/*	background-color: red;*/
+	overflow: hidden;
+	transition:all .5s ease-in;
+	cursor: pointer;
+}
+#can{
+	transform:rotate(45deg);
+	transition:all 1s linear;
+	background-color: #fff;
+	position: absolute;
+	left:-27px;
+}
+#toggle.out{
+	left: 735px;
+	transform:rotate(180deg);
+}
+
+/*/toggle*/
+
+.msg-for-success{
+	width: 190px;
+	background-color: #ffffff;
+	box-shadow:6px 6px 6px 0px #000;
+	text-align: center;
+	position: fixed;
+	top: 35%;
+	left: 43%;
+	display: none;
+	/*padding-top: 20px;*/
+}
+.msg-for-success>h2{
+	margin:20px 0;
+}
+.msg-for-success>p{
+	margin:20px 0;
+}
+
+.msg-for-success.show{
+	display: block;
+}
+/*=========  /section部分 ================================*/

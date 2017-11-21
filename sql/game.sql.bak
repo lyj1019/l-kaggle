@@ -1,0 +1,199 @@
+set names utf8;
+drop database if exists kaggle;
+create database kaggle CHARSET=UTF8;
+use kaggle;
+
+#用户表
+create table kaggle_users(
+  uid int primary key auto_increment,   #用户id , 主键 , 自增
+  uname varchar(32) default '',                    #用户名 ,
+  upwd varchar(32) default '',			#用户密码
+  email varchar(64) default '',			#用户邮箱
+  phone varchar(16) default '',			#用户手机号码
+  user_name varchar(32) default '',		#用户真实姓名
+  user_id varchar(20) default '',          #用户身份证号码
+  gender bool ,				#用户性别,1为男,0为女
+  avatar varchar(256) default 'img/avatar/default_avatar.png' 		#用户头像
+);
+
+
+#插入测试数据(用户表)
+insert into kaggle_users(uname,upwd,email,phone,user_name,user_id,gender) values("daxu","123456","xuxu@terna.com","15813213511","赵大旭",440402198304109236,1);
+
+
+#游戏表
+create table kaggle_games(
+  gid int primary key auto_increment,   #游戏id , 主键 , 自增
+  gname varchar(32) default '',         #游戏名 ,
+  abs varchar(16) default '',		#游戏简介
+  intr varchar(512) default '',		#游戏介绍
+  price decimal,			#游戏价格
+  market bigint,			#上架时间
+  sold int,				#销售量
+  praise int,				#好评量
+  down int				#下载量
+
+);
+
+#插入测试数据(游戏表)
+insert into kaggle_games(gname,abs,intr,price,market,sold,praise,down) 
+values("恶灵附身2","我要捡垃圾!","《恶灵附身2》是由Tango Gameworks制作、Bethesda发行的一款恐怖动作冒险游戏，是生化危机之父——三上真司打造的《恶灵附身》的续作。","398.20","1508758463325","999","666","998");
+
+
+
+
+
+
+
+#用户的游戏表
+create table users_games(
+  kid int primary key auto_increment,   #id , 主键 , 自增
+  user_id int,				#用户的id
+  game_id int				#游戏的id
+);
+
+#插入测试数据(用户的游戏表)
+#insert into users_games values(null,"1","1");
+
+
+#用户的收藏夹表
+create table users_collect(
+  cid int primary key auto_increment,   #id , 主键 , 自增
+  user_id int,				#用户的id
+  game_id int				#游戏的id
+);
+
+#插入测试数据(用户的游戏表)
+#insert into users_collect values(null,"1","1");
+
+
+#标签表
+create table label(
+  lid int primary key auto_increment,	#id
+  lname varchar(8) default ''		#标签名
+);
+insert into label(lname) values("RPG");
+insert into label(lname) values("射击");
+insert into label(lname) values("moba");
+insert into label(lname) values("卡牌");
+insert into label(lname) values("益智");
+insert into label(lname) values("恐怖");
+insert into label(lname) values("动作");
+insert into label(lname) values("冒险");
+insert into label(lname) values("体育");
+insert into label(lname) values("竞速");
+
+
+
+
+
+#游戏的标签表
+create table game_label(
+  glid int primary key auto_increment,	#id
+  game_id int,				#游戏id
+  label_id int				#标签id
+);
+#插入测试数据(每个游戏写3~4个)
+insert into game_label(game_id,label_id) values(1,1);
+insert into game_label(game_id,label_id) values(1,2);
+insert into game_label(game_id,label_id) values(1,5);
+insert into game_label(game_id,label_id) values(1,6);
+
+
+
+#平台表
+create table terrace(
+  tid int primary key auto_increment,	#id
+  tname varchar(8)			#平台名
+);
+
+#插入测试数据(平台表)
+insert into terrace values(null,"PC");
+insert into terrace values(null,"PS4");
+insert into terrace values(null,"Xbox");
+insert into terrace values(null,"Android");
+insert into terrace values(null,"IOS");
+
+
+
+
+
+#游戏的平台表
+create table game_terrace(
+  gtid int primary key auto_increment,	#id
+  game_id int,				#游戏id
+  terrace_id int			#平台id
+);
+#插入测试数据
+insert into game_terrace(game_id,terrace_id) values(1,1);
+insert into game_terrace(game_id,terrace_id) values(1,2);
+
+
+
+#游戏配置表
+create table spec(
+  sid int primary key auto_increment,	#id
+  game_id int,				#游戏ID
+  cpu varchar(128) default '',		#cpu
+  graphics varchar(128) default '',	#显卡
+  memory varchar(16) default '',	#内存
+  hardpan varchar(16) default '',	#硬盘
+  ishigh boolean			#是高配
+);
+#插入测试数据
+#低
+insert into spec(game_id,cpu,graphics,memory,hardpan,ishigh) 
+values(1,"Intel Core i5 2400K / AMD FX 8320 或更好","NVIDIA GeForce GTX 660 / AMD Radeon HD 7970 或更好","8 GB","40 GB","0");
+#高
+insert into spec(game_id,cpu,graphics,memory,hardpan,ishigh) 
+values(1,"Intel Core i7 4770 / AMD Ryzen 5 1600X 或更好","NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 480 8GB 或更好","16 GB","40 GB","1");
+
+
+#游戏图片表
+create table game_pic(
+  pid int primary key auto_increment,	#id
+  game_id int,				#游戏id
+  #sm varchar(258),			#小图路径
+  #md varchar(258)			#中图路径
+  pic varchar(258)			#图片路径
+
+);
+#插入测试数据
+insert into game_pic(game_id,pic) values(1,"img/data/TEW2/1.jpg");
+insert into game_pic(game_id,pic) values(1,"img/data/TEW2/2.jpg");
+insert into game_pic(game_id,pic) values(1,"img/data/TEW2/3.jpg");
+insert into game_pic(game_id,pic) values(1,"img/data/TEW2/4.jpg");
+insert into game_pic(game_id,pic) values(1,"img/data/TEW2/5.jpg");
+insert into game_pic(game_id,pic) values(1,"img/data/TEW2/6.jpg");
+
+
+#游戏logo图表
+create table game_logo(
+  lid int primary key auto_increment,	#id
+  game_id int,				#游戏id
+  #sm varchar(258),			#小图路径
+  #lg varchar(258)			#大图路径
+  logo varchar(258)			#logo图路径
+
+);
+#插入测试数据
+insert into game_logo(game_id,logo) values(1,"img/data/TEW2/logo.jpg");
+
+
+
+#首页推荐表
+create table index_hot(
+  hid int primary key auto_increment,	#id
+  game_id int,				#游戏id
+  #game_name varchar(32),		#游戏名
+  #abs varchar(16),			#简介
+  pc_g	int default 0,			#pc游戏
+  host	int default 0,			#主机游戏
+  net	int default 0,			#网络游戏
+  phone int default 0,			#手机游戏
+  hot	int default 0,			#推荐游戏
+  index_pic varchar(258) default '',	#(index页面)推荐用的图片
+  shop_p varchar(258) default ''	#(shopmain页面)推荐用的图片
+);
+
+#insert into index_hot(game_id,pc_g,host,net,phone,hot,pic) values(1,0,0,0,0,,1,"img/data/index/index_ted2.jpg");

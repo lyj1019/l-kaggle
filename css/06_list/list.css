@@ -1,0 +1,228 @@
+section{
+    background: url(../../img/index/home-footer-bg.png) -600px 0;
+}
+section .container{
+    background:  url(../../img/index/home-bg-play.png) 0 0;
+    background-color: #fdfdfd;
+    /*position: relative;*/
+}
+
+.list-title{
+    font-size: 45px;
+    text-align: left;
+}
+
+
+/*aside*/
+#aside{
+    /*min-height: 1000px;*/
+    width: 295px;
+    background-color: #670000;
+    /*float: left;*/
+    position: fixed;
+    right: 70px;
+    top: 110px;
+}
+.aside-container{
+    /*text-align: center;*/
+    width: 260px;
+    margin: 35px auto;
+    color: #fff;
+
+}
+.aside-logo{
+    width: 40%;
+    /*background-color: red;*/
+    margin: auto;
+}
+.aside-title,.aside-row{
+    padding: 20px 0;
+    border-bottom: 1px solid #fff;
+}
+.aside-row>*{
+    display: inline-block;
+}
+.aside-row>span{
+    width: 65%;
+}
+.aside-row>b{
+    width: 35%;
+}
+
+.aside-row.download{
+    color:#fff;
+    text-align: center;
+}
+.aside-row.download a{
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+.display-none{
+    display: none;
+}
+.aside-container .close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 1px solid #000000;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #fff;
+    font-weight: bold;
+    color: #000;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    /*box-sizing: border-box;*/
+    line-height: 20px;
+    cursor: pointer;
+}
+
+/*nav*/
+#nav{
+    width: 900px;
+    /*background-color: orangered;*/
+    margin-bottom: 10px;
+}
+.nav-row{
+    padding-top: 25px;
+    padding-bottom: 5px;
+    border-bottom:2px solid #000000 ;
+    font-weight: bold;
+
+}
+.nav-row-title{
+    display: inline-block;
+    width: 100px;
+    font-size: 22px;
+    text-align: center;
+}
+.nav-row-items{
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing:border-box;
+    cursor: pointer;
+}
+.nav-row-items.clicked{
+    color: red;
+    border: 1px solid red;
+}
+
+/*section*/
+#section{
+    /*height: 800px;*/
+    width: 900px;
+    /*background-color: #ffc600;*/
+}
+.section-item-container{
+    border:1px solid #000000;
+}
+/*.section-item-container:hover{*/
+    /*background-color: #efefef;*/
+    /*box-sizing: border-box;*/
+    /*border:2px solid #000000;*/
+/*}*/
+.section-item-container>*{
+    float: left;
+}
+.item-logo{
+    width: 150px;
+    height: 150px;
+    /*background-color: #008abc;*/
+    text-align: center;
+    line-height: 150px;
+}
+.item-logo img{
+    width: 120px;
+    height: 120px;
+    vertical-align:middle;
+}
+.item-content{
+    width: 580px;
+}
+.item-content>*{
+    padding-top:17px;
+}
+.item-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+.item-abs{
+    font-size: 18px;
+}
+.item-tips>*{
+    margin-right: 90px;
+}
+.item-tips>*>b{
+    margin-right: 24px;
+}
+
+.item-download{
+    width: 150px;
+}
+
+.item-download{
+    width: 150px;
+    text-align: center;
+    line-height: 150px;
+}
+.item-download .btn{
+    background-color: #20beff;
+    color: #fff;
+    padding: 10px 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.item-download .btn:hover{
+    background-color: #008abc;
+}
+.item-intr{
+    width: 900px;
+    /*min-height: 100px;*/
+    height: 0px;
+    background-color: #cccccc;
+    overflow: hidden;
+    transition:all .3s linear;
+    text-indent: 30px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+
+}
+.item-intr.show{
+    height: auto;
+    min-height: 30px;
+    padding: 15px 20px;
+}
+
+.page-container{
+    width: 900px;
+    text-align: center;
+    margin: 20px;
+}
+.page-item{
+    display: inline-block;
+    border:1px solid #777;
+    padding: 2px 15px;
+    border-radius: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.page-item:hover{
+    background-color: #20beff;
+    color: #fff;
+}
+.page-item.on{
+    background-color: #008abc;
+    color: #fff;
+}
+.page-item.cannot{
+    background-color: #ccc;
+    color: #555555;
+    cursor: not-allowed;
+}

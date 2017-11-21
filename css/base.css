@@ -1,0 +1,58 @@
+/*取消一下标签的默认样式(内,外边距  列表样式)*/
+body,ul,ol,p,dl,pre,h1,h2,h3,h4,h5,h6,li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	/*vertical-align:bottom;*/
+}
+/*取消input的边框*/
+input{
+	border:0;
+}
+/*取消input聚焦时的默认样式(蓝色"边框")*/
+input:focus{
+	outline:none;
+}
+/*取消a标签的默认样式*/
+/*将a标签的默认样式改为:无下划线,字体黑色*/
+a{
+	text-decoration: none;
+	color: #000;
+}
+/*红色字体*/
+.error{
+	 color:red;
+}
+/*绿色字体*/
+.right{
+	color:green;
+}
+
+.clear::after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.clear::before{
+	content:"";
+	display:table;
+}
+.container{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 50px;
+	vertical-align:middle;
+	overflow: hidden;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+section{
+	min-width: 1360px;
+	margin: auto;
+	margin-top: 60px;
+}
+body{
+	width: 100%;
+}

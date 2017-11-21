@@ -1,0 +1,11 @@
+(()=>{
+	let doLogin =  $(".do-login")
+	$("#login").click(function(e){
+		e.stopPropagation();
+		doLogin.toggleClass("show");
+	})
+
+	$("body").on("click",function(){
+		doLogin.removeClass("show");
+	})
+})()
